@@ -1,0 +1,22 @@
+<Package>
+  <Name>FileZilla</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>FileZilla</HumanReadableName>
+  <URLGenerator32>
+	<URLGenerator>$checkurl = "http://update.filezilla-project.org/update.php?platform=6.1&amp;version=" + $CurrentVersion</URLGenerator>
+	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$version = $versions -split "[\n\r\s]" | Select-Object -Index 1</URLGenerator>
+	<URLGenerator>$url = "http://downloads.sourceforge.net/project/filezilla/FileZilla_Client/" + $version + "/FileZilla_" + $version + "_win32-setup.exe"</URLGenerator>
+	<URLGenerator>$header = "FileZilla " + $CurrentVersion</URLGenerator>
+	<URLGenerator>$WebClient.Headers.Add("user-agent", $header)</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator32>
+  <Extras32>
+    <CustomOptions>/S /user=all</CustomOptions>
+  </Extras32>
+</Package>

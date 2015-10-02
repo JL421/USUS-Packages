@@ -1,0 +1,10 @@
+<Package>
+  <Name>AdobeAir</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>Adobe Air</HumanReadableName>
+  <DownloadURL32>http://airdownload.adobe.com/air/win/download/latest/AdobeAIRInstaller.exe</DownloadURL32>
+  <Extras32>
+    <CustomOptions>-silent -eulaAccepted</CustomOptions>
+  </Extras32>
+</Package>

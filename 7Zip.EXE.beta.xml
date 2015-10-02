@@ -1,0 +1,36 @@
+<Package>
+  <Name>7Zip.EXE.Beta</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>7 Zip Installer (EXE)</HumanReadableName>
+  <URLGenerator32>
+    <URLGenerator>$checkurl = "http://www.7-zip.org/history.txt"</URLGenerator>
+    <URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+    <URLGenerator>IF($versions -eq $Null)</URLGenerator>
+    <URLGenerator>{</URLGenerator>
+    <URLGenerator>	return</URLGenerator>
+    <URLGenerator>}</URLGenerator>
+    <URLGenerator>$version = $versions -split "[\n\r\s]" | Select-Object -Index 9</URLGenerator>
+    <URLGenerator>$urlversion = $version -replace "\.",""</URLGenerator>
+    <URLGenerator>$url = "http://www.7-zip.org/a/7z" + $urlversion + ".exe"</URLGenerator>
+    <URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator32>
+  <Extras32>
+	<CustomOptions>/S</CustomOptions>
+  </Extras32>
+  <URLGenerator64>
+    <URLGenerator>$checkurl = "http://www.7-zip.org/history.txt"</URLGenerator>
+    <URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+    <URLGenerator>IF($versions -eq $Null)</URLGenerator>
+    <URLGenerator>{</URLGenerator>
+    <URLGenerator>	return</URLGenerator>
+    <URLGenerator>}</URLGenerator>
+    <URLGenerator>$version = $versions -split "[\n\r\s]" | Select-Object -Index 9</URLGenerator>
+    <URLGenerator>$urlversion = $version -replace "\.",""</URLGenerator>
+    <URLGenerator>$url = "http://www.7-zip.org/a/7z" + $urlversion + "-x64.exe"</URLGenerator>
+    <URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator64>
+  <Extras64>
+	<CustomOptions>/S</CustomOptions>
+  </Extras64>
+</Package>

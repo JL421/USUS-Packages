@@ -1,0 +1,12 @@
+<Package>
+  <Name>Shockwave</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>Shockwave (MSI)</HumanReadableName>
+  <IsMSI>True</IsMSI>
+  <DownloadURL32>http://www.adobe.com/go/sw_msi_installer</DownloadURL32>
+    <Extras32>
+	<SilentInstall>True</SilentInstall>
+	<NoReboot>True</NoReboot>
+  </Extras32>
+</Package>

@@ -1,0 +1,36 @@
+<Package>
+  <Name>VLC</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>VLC Player</HumanReadableName>
+  <URLGenerator32>
+	<URLGenerator>$checkurl = "http://download.videolan.org/pub/videolan/vlc/last/win32/"</URLGenerator>
+	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$versions -match '(vlc-[0-9.]{5,12}-win32.exe)' | Out-Null</URLGenerator>
+	<URLGenerator>$version = ($Matches[0] -replace "vlc-","").TrimEnd("-win32.exe")</URLGenerator>
+	<URLGenerator>$url = $checkurl + $Matches[0]</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator32>
+  <Extras32>
+    <CustomOptions>--no-qt-privacy-ask --no-qt-updates-notif /S</CustomOptions>
+  </Extras32>
+  <URLGenerator64>
+	<URLGenerator>$checkurl = "http://download.videolan.org/pub/videolan/vlc/last/win64/"</URLGenerator>
+	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$versions -match '(vlc-[0-9.]{5,12}-win64.exe)' | Out-Null</URLGenerator>
+	<URLGenerator>$version = ($Matches[0] -replace "vlc-","").TrimEnd("-win64.exe")</URLGenerator>
+	<URLGenerator>$url = $checkurl + $Matches[0]</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator64>
+  <Extras64>
+    <CustomOptions>--no-qt-privacy-ask --no-qt-updates-notif /S</CustomOptions>
+  </Extras64>
+</Package>

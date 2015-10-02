@@ -1,0 +1,22 @@
+<Package>
+  <Name>Firefox</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>Firefox</HumanReadableName>
+  <URLGenerator32>
+	<URLGenerator>$checkurl = "http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/latest/win32/en-US/"</URLGenerator>
+	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$versions -match '(Firefox Setup [0-9.]{5,15})' | Out-Null</URLGenerator>
+	<URLGenerator>$version = ($Matches[0] -replace "Firefox Setup ","").TrimEnd(".")</URLGenerator>
+	<URLGenerator>$versions -match '(Firefox%20Setup%20[0-9.ex]{5,15})' | Out-Null</URLGenerator>
+	<URLGenerator>$url = $checkurl + $Matches[0]</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator32>
+  <Extras32>
+	<CustomOptions>-ms</CustomOptions>
+  </Extras32>
+</Package>

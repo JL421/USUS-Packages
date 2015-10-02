@@ -1,0 +1,26 @@
+<Package>
+  <Name>AdobeReader</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>Adobe Reader</HumanReadableName>
+  <IsMSI>True</IsMSI>
+  <URLGenerator32>
+    <URLGenerator>$user = "anonymous"</URLGenerator>
+	<URLGenerator>$pass = "pass" | ConvertTo-SecureString -AsPlainText -Force</URLGenerator>
+	<URLGenerator>$cred = New-Object -TypeName System.Management.Automation.PSCredential -argumentlist $user, $pass</URLGenerator>
+	<URLGenerator>$checkurl = "ftp://ftp.adobe.com/pub/adobe/reader/win/AcrobatDC/"</URLGenerator>
+	<URLGenerator>$versions = Get-FtpDirectory $checkurl $cred</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$version = $versions -split "[\n\r\s]" | Select-Object -Index 0</URLGenerator>
+	<URLGenerator>$url = "http" + $checkurl.Substring(3,$checkurl.Length-3) + $version + "/AcroRdrDC" + $version + "_en_US.msi"</URLGenerator>
+	<URLGenerator>$version = $version.Substring(0,2) + "." + $version.Substring(2,3) + "." + $version.Substring(5,$version.Length-5)</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator32>
+  <Extras32>
+    <SilentInstall>True</SilentInstall>
+	<NoReboot>True</NoReboot>
+  </Extras32>
+</Package>

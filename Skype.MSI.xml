@@ -1,0 +1,13 @@
+<Package>
+  <Name>Skype</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>Skype (MSI)</HumanReadableName>
+  <IsMSI>True</IsMSI>
+  <DownloadURL32>http://www.skype.com/go/getskype-msi</DownloadURL32>
+  <Extras32>
+	<SilentInstall>True</SilentInstall>
+	<NoReboot>True</NoReboot>
+	<CustomOptions>ALLUSERS=1</CustomOptions>
+  </Extras32>
+</Package>

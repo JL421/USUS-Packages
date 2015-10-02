@@ -1,0 +1,46 @@
+<Package>
+  <Name>crashplanpro</Name>
+  <Version>1</Version>
+  <Verify>USUS XML Package File</Verify>
+  <HumanReadableName>CrashPlan Pro</HumanReadableName>
+  <URLGenerator32>
+	<URLGenerator>$checkurl = "http://support.code42.com/Release_Notes/Code42_Platform"</URLGenerator>
+	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$versions -match '(#CrashPlan_App">[0-9.]{3,8})' | Out-Null</URLGenerator>
+	<URLGenerator>$version = $Matches[0] -Split ">" | Select-Object -Index 1</URLGenerator>
+	<URLGenerator>$url = "http://www.code42.com/r/dl/client/CrashPlanPRO/win32/" + $version</URLGenerator>
+	<URLGenerator>IF ($url -eq "http" -Or $version -eq "http")</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return $False, $False</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator32>
+  <Extras32>
+    <CustomOptions>/exenoui /qn /norestart CP_SILENT=true</CustomOptions>
+	<Description>Crashplan Pro backup for Offsite File Backup</Description>
+  </Extras32>
+  <URLGenerator64>
+	<URLGenerator>$checkurl = "http://support.code42.com/Release_Notes/Code42_Platform"</URLGenerator>
+	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$versions -match '(#CrashPlan_App">[0-9.]{3,8})' | Out-Null</URLGenerator>
+	<URLGenerator>$version = $Matches[0] -Split ">" | Select-Object -Index 1</URLGenerator>
+	<URLGenerator>$url = "http://www.code42.com/r/dl/client/CrashPlanPRO/win64/" + $version</URLGenerator>
+	<URLGenerator>IF ($url -eq "http" -Or $version -eq "http")</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>	return $False, $False</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator64>
+  <Extras64>
+	<CustomOptions>/exenoui /qn /norestart CP_SILENT=true</CustomOptions>
+	<Description>Crashplan Pro backup for Offsite File Backup</Description>
+  </Extras64>
+</Package>
