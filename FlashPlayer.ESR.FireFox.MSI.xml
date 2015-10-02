@@ -1,0 +1,36 @@
+<Package>
+    <Name>flashplayerpluginesr</Name>
+    <Version>1</Version>
+    <Verify>USUS XML Package File</Verify>
+    <HumanReadableName>Flash Player - Plugin Version ESR (Firefox)</HumanReadableName>
+    <IsMSI>True</IsMSI>
+    <URLGenerator32>
+      <URLGenerator>$checkurl = "https://www.adobe.com/products/flashplayer/distribution3.html"</URLGenerator>
+      <URLGenerator>IF (!($checkurl -Match ('http')))</URLGenerator>
+      <URLGenerator>{</URLGenerator>
+      <URLGenerator>    return $False, $False</URLGenerator>
+      <URLGenerator>}</URLGenerator>
+      <URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+      <URLGenerator>IF($versions -eq $Null)</URLGenerator>
+      <URLGenerator>{</URLGenerator>
+      <URLGenerator>    return</URLGenerator>
+      <URLGenerator>}</URLGenerator>
+      <URLGenerator>$versions -match '(Extended Support Release - Flash Player [0-9.]{5,12})' | Out-Null</URLGenerator>
+      <URLGenerator>$version = $Matches[0]</URLGenerator>
+      <URLGenerator>$version -Match '([0-9.]{4,20})' | Out-Null</URLGenerator>
+      <URLGenerator>$version = $Matches[0]</URLGenerator>
+      <URLGenerator>$dlversion = $version -match '^(.*?)\.'</URLGenerator>
+      <URLGenerator>$dlversion = $Matches[1]</URLGenerator>
+      <URLGenerator>$versions -match '(https://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_'+$dlversion+'_plugin.msi)' | Out-Null</URLGenerator>
+      <URLGenerator>$url = $Matches[0]</URLGenerator>
+      <URLGenerator>IF ($url -eq "http" -Or $version -eq "http")</URLGenerator>
+      <URLGenerator>{</URLGenerator>
+      <URLGenerator>    return $False, $False</URLGenerator>
+      <URLGenerator>}</URLGenerator>
+      <URLGenerator>return $url, $version</URLGenerator>
+    </URLGenerator32>
+    <Extras32>
+      <SilentInstall>True</SilentInstall>
+      <NoReboot>True</NoReboot>
+    </Extras32>
+</Package>

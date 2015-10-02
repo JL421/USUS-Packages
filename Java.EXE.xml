@@ -1,0 +1,46 @@
+<Package>
+    <Name>Java</Name>
+    <Version>1</Version>
+    <Verify>USUS XML Package File</Verify>
+    <HumanReadableName>Oracle Java</HumanReadableName>
+    <URLGenerator32>
+      <URLGenerator>$checkurl = 'http://java.com/en/download/manual.jsp'</URLGenerator>
+      <URLGenerator>IF (!($checkurl -Match ('http')))</URLGenerator>
+      <URLGenerator>{</URLGenerator>
+      <URLGenerator>    return $False, $False</URLGenerator>
+      <URLGenerator>}</URLGenerator>
+      <URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+      <URLGenerator>IF($versions -eq $Null)</URLGenerator>
+      <URLGenerator>{</URLGenerator>
+      <URLGenerator>    return</URLGenerator>
+      <URLGenerator>}</URLGenerator>
+      <URLGenerator>$versions -match 'Offline(.*)' | Out-Null</URLGenerator>
+      <URLGenerator>$url = $Matches[0]</URLGenerator>
+      <URLGenerator>$url -match '\b(?:(?:https?|ftp|file)://|www\.|ftp\.)[-A-Z0-9+#/%=~_|$?!:,.]*[A-Z0-9+#/%=~_|$]' | Out-Null</URLGenerator>
+      <URLGenerator>$url = $Matches[0]</URLGenerator>
+      <URLGenerator>return $url</URLGenerator>
+    </URLGenerator32>
+    <Extras32>
+      <CustomOptions>/s</CustomOptions>
+    </Extras32>
+    <URLGenerator64>
+      <URLGenerator>$checkurl = 'http://java.com/en/download/manual.jsp'</URLGenerator>
+      <URLGenerator>IF (!($checkurl -Match ('http')))</URLGenerator>
+      <URLGenerator>{</URLGenerator>
+      <URLGenerator>    return $False, $False</URLGenerator>
+      <URLGenerator>}</URLGenerator>
+      <URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+      <URLGenerator>IF($versions -eq $Null)</URLGenerator>
+      <URLGenerator>{</URLGenerator>
+      <URLGenerator>    return</URLGenerator>
+      <URLGenerator>}</URLGenerator>
+      <URLGenerator>$versions -match 'Download Java software for Windows \(64-bit\)(.*)' | Out-Null</URLGenerator>
+      <URLGenerator>$url = $Matches[0]</URLGenerator>
+      <URLGenerator>$url -match '\b(?:(?:https?|ftp|file)://|www\.|ftp\.)[-A-Z0-9+#/%=~_|$?!:,.]*[A-Z0-9+#/%=~_|$]' | Out-Null</URLGenerator>
+      <URLGenerator>$url = $Matches[0]</URLGenerator>
+      <URLGenerator>return $url</URLGenerator>
+    </URLGenerator64>
+    <Extras64>
+      <CustomOptions>/s</CustomOptions>
+    </Extras64>
+</Package>

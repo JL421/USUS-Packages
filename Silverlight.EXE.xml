@@ -1,0 +1,14 @@
+<Package>
+    <Name>Silverlight</Name>
+    <Version>1</Version>
+    <Verify>USUS XML Package File</Verify>
+    <HumanReadableName>Microsoft Silverlight</HumanReadableName>
+    <DownloadURL32>https://go.microsoft.com/fwlink/?LinkId=229320</DownloadURL32>
+    <Extras32>
+      <CustomOptions>/q /noupdate</CustomOptions>
+    </Extras32>
+    <DownloadURL64>https://go.microsoft.com/fwlink/?LinkID=229321</DownloadURL64>
+    <Extras64>
+      <CustomOptions>/q /noupdate</CustomOptions>
+    </Extras64>
+</Package>
