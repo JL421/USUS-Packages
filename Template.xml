@@ -1,0 +1,38 @@
+<Package>
+  <Name></Name> <!-- Name of the Software Package -->
+  <Version>1</Version> <!-- Version of the Package (Starts with 1 and increment for each version) -->
+  <Verify>USUS XML Package File</Verify> <!-- Just keep it in the files for now/Reserved for future use -->
+  <HumanReadableName></HumanReadableName> <!-- Easily readable package name -->
+  <IsMSI></IsMSI> <!-- Remove or Comment this line if not an MSI -->
+  <CustomPath></CustomPath> <!-- Remove or Comment this line if not using a Custom Path -->
+  <DownloadURL32></DownloadURL32> <!-- Remove or Comment this line if not using a static download URL, otherwise fill in without quotes -->
+  <URLGenerator32> <!-- Remove or Comment this node section if not using a Dynamic URL Generator, otherwise put each command on a new line surrounded by the URLGenerator items -->
+	<URLGenerator></URLGenerator> <!-- Remove or Comment this node section if not using a Dynamic URL Generator, otherwise put each command on a new line surrounded by the URLGenerator items -->
+  </URLGenerator32> <!-- Remove or Comment this node section if not using a Dynamic URL Generator, otherwise put each command on a new line surrounded by the URLGenerator items -->
+  <Extras32> <!-- Extra information about the package -->
+    <Author></Author> <!-- Author of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used-->
+    <CustomOptions></CustomOptions> <!-- Custom Installer Options to be passed on. Remove or Comment this line if not used -->
+	<Description></Description> <!-- Description of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<IconURL></IconURL> <!-- IconURL for the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<NoReboot></NoReboot> <!-- Request No Reboot after install. Remove or Comment this line if not used -->
+	<Owner></Owner> <!-- Owner of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<SilentInstall></SilentInstall> <!-- Request Silent Install. Remove or Comment this line if not used -->
+	<Summary></Summary> <!-- Summary of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<Tags></Tags> <!-- Tags for the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+  </Extras32>
+  <DownloadURL64></DownloadURL64> <!-- Remove or Comment this line if not using a static download URL, otherwise fill in without quotes -->
+  <URLGenerator64> <!-- Remove or Comment this node section if not using a Dynamic URL Generator, otherwise put each command on a new line surrounded by the URLGenerator items -->
+	<URLGenerator></URLGenerator> <!-- Remove or Comment this node section if not using a Dynamic URL Generator, otherwise put each command on a new line surrounded by the URLGenerator items -->
+  </URLGenerator64> <!-- Remove or Comment this node section if not using a Dynamic URL Generator, otherwise put each command on a new line surrounded by the URLGenerator items -->
+  <Extras64> <!-- Extra information about the package -->
+    <Author></Author> <!-- Author of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used-->
+    <CustomOptions></CustomOptions> <!-- Custom Installer Options to be passed on. Remove or Comment this line if not used -->
+	<Description></Description> <!-- Description of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<IconURL></IconURL> <!-- IconURL for the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<NoReboot></NoReboot> <!-- Request No Reboot after install. Remove or Comment this line if not used -->
+	<Owner></Owner> <!-- Owner of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<SilentInstall></SilentInstall> <!-- Request Silent Install. Remove or Comment this line if not used -->
+	<Summary></Summary> <!-- Summary of the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+	<Tags></Tags> <!-- Tags for the package, used in Chocolatey Package Creation/Future Use. Remove or Comment this line if not used -->
+  </Extras64>
+</Package>
