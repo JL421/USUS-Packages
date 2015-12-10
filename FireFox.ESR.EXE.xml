@@ -1,22 +1,37 @@
 <Package>
   <Name>FirefoxESR</Name>
-  <Version>1</Version>
+  <Version>2</Version>
   <Verify>USUS XML Package File</Verify>
   <HumanReadableName>Firefox Extended Support Release</HumanReadableName>
   <URLGenerator32>
-	<URLGenerator>$checkurl = "http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/latest-esr/win32/en-US/"</URLGenerator>
+	<URLGenerator>$checkurl = "https://www.mozilla.org/en-US/firefox/notes/"</URLGenerator>
 	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
 	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
 	<URLGenerator>{</URLGenerator>
-	<URLGenerator>	return</URLGenerator>
+	<URLGenerator>  return</URLGenerator>
 	<URLGenerator>}</URLGenerator>
-	<URLGenerator>$versions -match '(Firefox Setup [0-9.]{5,15})' | Out-Null</URLGenerator>
-	<URLGenerator>$version = $Matches[0] -replace "Firefox Setup ",""</URLGenerator>
-	<URLGenerator>$versions -match '(Firefox%20Setup%20[0-9.esrx]{5,20})' | Out-Null</URLGenerator>
-	<URLGenerator>$url = $checkurl + $Matches[0]</URLGenerator>
+	<URLGenerator>$versions -match '(data-esr-versions=["0-9.]{6,12})' | Out-Null</URLGenerator>
+	<URLGenerator>$version = $Matches[0].TrimStart('data-esr-versions="').TrimEnd('"')</URLGenerator>
+	<URLGenerator>$url = "https://download.mozilla.org/?product=firefox-esr-latest&os=win&lang=en-US"</URLGenerator>
 	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator32>
   </URLGenerator32>
   <Extras32>
 	<CustomOptions>-ms</CustomOptions>
   </Extras32>
+  <URLGenerator64>
+	<URLGenerator>$checkurl = "https://www.mozilla.org/en-US/firefox/notes/"</URLGenerator>
+	<URLGenerator>$versions = $WebClient.DownloadString($checkurl)</URLGenerator>
+	<URLGenerator>IF($versions -eq $Null)</URLGenerator>
+	<URLGenerator>{</URLGenerator>
+	<URLGenerator>  return</URLGenerator>
+	<URLGenerator>}</URLGenerator>
+	<URLGenerator>$versions -match '(data-esr-versions=["0-9.]{6,12})' | Out-Null</URLGenerator>
+	<URLGenerator>$version = $Matches[0].TrimStart('data-esr-versions="').TrimEnd('"')</URLGenerator>
+	<URLGenerator>$url = "https://download.mozilla.org/?product=firefox-esr-latest&os=win64&amp;lang=en-US"</URLGenerator>
+	<URLGenerator>return $url, $version</URLGenerator>
+  </URLGenerator64>
+  <Extras64>
+	<CustomOptions>-ms</CustomOptions>
+  </Extras64>
 </Package>
