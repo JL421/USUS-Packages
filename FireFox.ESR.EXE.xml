@@ -15,7 +15,6 @@
 	<URLGenerator>$url = "https://download.mozilla.org/?product=firefox-esr-latest&os=win&lang=en-US"</URLGenerator>
 	<URLGenerator>return $url, $version</URLGenerator>
   </URLGenerator32>
-  </URLGenerator32>
   <Extras32>
 	<CustomOptions>-ms</CustomOptions>
   </Extras32>
