@@ -1,11 +1,11 @@
 <Package>
   <Name>flashplayeractivex</Name>
-  <Version>1</Version>
+  <Version>2</Version>
   <Verify>USUS XML Package File</Verify>
   <HumanReadableName>Flash Player - Active X Version (IE)</HumanReadableName>
   <IsMSI>True</IsMSI>
   <URLGenerator32>
-	<URLGenerator>$checkurl = "https://www.adobe.com/products/flashplayer/distribution3.html"</URLGenerator>
+	<URLGenerator>$checkurl = "https://www.adobe.com/products/flashplayer/distribution5.html"</URLGenerator>
 	<URLGenerator>IF (!($checkurl -Match ('http')))</URLGenerator>
 	<URLGenerator>{</URLGenerator>
 	<URLGenerator>	return $False, $False</URLGenerator>
