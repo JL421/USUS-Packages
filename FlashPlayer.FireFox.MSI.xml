@@ -1,6 +1,6 @@
 <Package>
   <Name>flashplayerplugin</Name>
-  <Version>2</Version>
+  <Version>3</Version>
   <Verify>USUS XML Package File</Verify>
   <HumanReadableName>Flash Player - Plugin Version (Firefox)</HumanReadableName>
   <IsMSI>True</IsMSI>
@@ -15,13 +15,11 @@
 	<URLGenerator>{</URLGenerator>
 	<URLGenerator>	return</URLGenerator>
 	<URLGenerator>}</URLGenerator>
-	<URLGenerator>$versions -match '(Flash Player [0-9.]{5,12})' | Out-Null</URLGenerator>
-	<URLGenerator>$version = $Matches[0]</URLGenerator>
-	<URLGenerator>$versions -match '(https://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_[0-9]{2,3}_plugin.msi[a-z0-9?=_]{0,100})' | Out-Null</URLGenerator>
-	<URLGenerator>$url = $Matches[0]</URLGenerator>
-	<URLGenerator>$version -Match '([0-9.]{4,20})' | Out-Null</URLGenerator>
-	<URLGenerator>$version = $Matches[0]</URLGenerator>
-	<URLGenerator>IF ($url -eq "http" -Or $version -eq "http")</URLGenerator>
+	<URLGenerator>$versions -match '(Flash Player [0-9.]{5,12} \(Win &amp; Mac\))' | Out-Null</URLGenerator>
+	<URLGenerator>$version = $Matches[0].TrimStart('Flash Player ').TrimEnd('\(Win &amp; Mac\)')</URLGenerator>
+	<URLGenerator>$majorVersion = $version -split '\.' | Select-Object -Index 0</URLGenerator>
+	<URLGenerator>$url = "https://fpdownload.macromedia.com/get/flashplayer/distyfp/current/win/install_flash_player_" + $majorVersion+ "_plugin.msi"</URLGenerator>
+	<URLGenerator>IF ($version -eq "http")</URLGenerator>
 	<URLGenerator>{</URLGenerator>
 	<URLGenerator>	return $False, $False</URLGenerator>
 	<URLGenerator>}</URLGenerator>
