@@ -1,6 +1,6 @@
 <Package>
   <Name>flashplayeractivex</Name>
-  <Version>3</Version>
+  <Version>4</Version>
   <Verify>USUS XML Package File</Verify>
   <HumanReadableName>Flash Player - Active X Version (IE)</HumanReadableName>
   <IsMSI>True</IsMSI>
