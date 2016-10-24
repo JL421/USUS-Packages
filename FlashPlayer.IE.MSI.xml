@@ -15,8 +15,8 @@
 	<URLGenerator>{</URLGenerator>
 	<URLGenerator>	return</URLGenerator>
 	<URLGenerator>}</URLGenerator>
-	<URLGenerator>$versions -match '(Flash Player [0-9.]{5,12} \(Win &amp; Mac\))' | Out-Null</URLGenerator>
-	<URLGenerator>$version = $Matches[0].TrimStart('Flash Player ').TrimEnd('\(Win &amp; Mac\)')</URLGenerator>
+	<URLGenerator>$versions -match '(Flash Player [0-9.]{5,12} \(Win &amp;amp; Mac\))' | Out-Null</URLGenerator>
+	<URLGenerator>$version = $Matches[0].TrimStart('Flash Player ').TrimEnd('\(Win &amp;amp; Mac\)')</URLGenerator>
 	<URLGenerator>$majorVersion = $version -split '\.' | Select-Object -Index 0</URLGenerator>
 	<URLGenerator>$url = "https://fpdownload.macromedia.com/get/flashplayer/distyfp/current/win/install_flash_player_" + $majorVersion+ "_active_x.msi"</URLGenerator>
 	<URLGenerator>IF ($version -eq "http")</URLGenerator>
